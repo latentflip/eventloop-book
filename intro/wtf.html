@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>WTF is the event loop? | EL</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="latentflip">
+        <meta name="description" content="">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../intro/single-threaded.html" />
+        
+        
+        <link rel="prev" href="../intro/README.html" />
+        
+
+        <meta property="og:title" content="WTF is the event loop? | EL">
+        <meta property="og:site_name" content="EL">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/latentflip">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="latentflip/el" data-level="1.1">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/latentflip/el" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/latentflip/el/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/latentflip/el/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >EL</a></h1>
+</div>
+
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/latentflip" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/edit/master/intro/wtf.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Intro
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1">
+                            
+                            <a href="../intro/wtf.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> WTF is the event loop?
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2">
+                            
+                            <a href="../intro/single-threaded.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Single Threaded
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3">
+                            
+                            <a href="../intro/callback-queue.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> The callback queue
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4">
+                            
+                            <a href="../intro/asynchronous.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> Asynchronous
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.5">
+                            
+                            <a href="../intro/the-stack.html">
+                                <i class="fa fa-check"></i> <b>1.5)</b> What&#39;s the stack
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.6">
+                            
+                            <a href="../intro/event-loop-browser.html">
+                                <i class="fa fa-check"></i> <b>1.6)</b> Event loop in the browser context
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.7">
+                            
+                            <a href="../intro/timers.html">
+                                <i class="fa fa-check"></i> <b>1.7)</b> Timers
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.8">
+                            
+                            <a href="../intro/now-or-later.html">
+                                <i class="fa fa-check"></i> <b>1.8)</b> Now or later: sync or async callbacks
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="page-wrapper">
+            <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 22.22222222222222%;min-width: 11.11111111111111%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../README.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Intro" class="chapter done new-chapter" data-progress="1" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../intro/wtf.html" title="WTF is the event loop?" class="chapter done " data-progress="1.1" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../intro/single-threaded.html" title="Single Threaded" class="chapter  " data-progress="1.2" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../intro/callback-queue.html" title="The callback queue" class="chapter  " data-progress="1.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../intro/asynchronous.html" title="Asynchronous" class="chapter  " data-progress="1.4" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../intro/the-stack.html" title="What&#39;s the stack" class="chapter  " data-progress="1.5" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../intro/event-loop-browser.html" title="Event loop in the browser context" class="chapter  " data-progress="1.6" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../intro/timers.html" title="Timers" class="chapter  " data-progress="1.7" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../intro/now-or-later.html" title="Now or later: sync or async callbacks" class="chapter  " data-progress="1.8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+            <div class="page-inner">
+            
+                <section class="normal" id="section-gitbook_5">
+                
+                    <h1 id="wtf-is-the-event-loop">WTF is the event loop</h1>
+<p>Both JavaScript in the browser and in node are based upon an event loop. But what is an event loop, and why does JavaScript use one?</p>
+<p>JavaScript&#39;s event loop basis comes from it&#39;s history in the browser, and the fact it has to be designed to directly interact with humans to build GUIs. JavaScript on the server, a la node.js, has kept the event loop as it has some interesting benefits when applied to certain types of server-side programming.</p>
+<h2 id="guis">GUIs</h2>
+<p>Let&#39;s contrast it with something like ruby (or pick any other classic scripting language here). A ruby script runs, and when it&#39;s done running, it stops. The only way ruby can get information from the world outside of it&#39;s script is to stop and ask for it. For example, if a ruby script wants to ask for you name, you can use the <code>gets()</code> function, and ruby will stop, and ask for it:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">"What's your name?"</span>
+name = gets()
+puts <span class="hljs-string">"Your name is <span class="hljs-subst">#{name}</span>"</span>
+</code></pre>
+<p>The interaction is driven by the program:</p>
+<ul>
+<li><strong>Computer:</strong> Hey, you there? What&#39;s your name.</li>
+<li><strong>User:</strong> Oh, here you go, it&#39;s Bob.</li>
+<li><strong>Computer:</strong> Thanks, don&#39;t go anywhere, I&#39;ll brb with the next question.</li>
+</ul>
+<p>This is fine for a command line script, but think about a building a user interface with multiple inputs. We just said that to get user input, ruby has to stop and wait for it. And it can only do that for one input at a time.  A GUI isn&#39;t a stop the program and ask for some user input paradigm. A GUI is user driven. They can do what they want, when they want, without being restricted by a linear flow as determined by the computer:</p>
+<ul>
+<li><strong>User:</strong> I just clicked the save button.</li>
+<li><strong>Computer:</strong> But you didn&#39;t fill the form out yet.</li>
+</ul>
+<ul>
+<li><strong>User:</strong> I just typed a username in the username box.</li>
+<li><strong>Computer:</strong> Ah, right, let me check if that names available.</li>
+</ul>
+<ul>
+<li><strong>User:</strong> I clicked the save button.</li>
+<li><strong>Computer:</strong> Okay, looks good, let me save that for you.</li>
+</ul>
+<p>We can&#39;t describe a program like the above in ruby. But we can in JavaScript really easily. Thanks to it&#39;s event loop.</p>
+<h2 id="the-event-loop">The event loop</h2>
+<p>The event loop allows us to express this kind of user-driven programming (commonly called event-driven programming). It&#39;s pretty simple at it&#39;s core. In pseudo code it would look something like this:</p>
+<pre><code class="lang-basic"><span class="hljs-number">10</span> WAIT <span class="hljs-keyword">UNTIL</span> the user performs any &lt;action&gt;
+<span class="hljs-number">20</span>   <span class="hljs-keyword">IF</span> there <span class="hljs-keyword">is</span> something we are supposed <span class="hljs-keyword">to</span> <span class="hljs-keyword">do</span> <span class="hljs-keyword">as</span> a result <span class="hljs-keyword">of</span> &lt;action&gt;:
+<span class="hljs-number">30</span>     <span class="hljs-keyword">DO</span> that thing
+<span class="hljs-number">40</span>   <span class="hljs-keyword">GOTO</span> <span class="hljs-number">10</span>
+</code></pre>
+<p>The <code>&lt;action&gt;</code> might be any interaction, and can happen in any order. We have surrendered control to the user. When the user does something, we handle that thing, and wait for them to do something else.</p>
+<p>We will come back to this, but in the browser it is the DOM with which the user interacts. We can think of the DOM as a thing which handles the direct user input, and tells us if the user has done something which we might be interested. So the pseudo code is maybe more accurately represented as:</p>
+<pre><code class="lang-basic"><span class="hljs-number">10</span> WAIT UNTIL <span class="hljs-operator">the</span> dom tells us <span class="hljs-operator">the</span> user did <span class="hljs-operator">an</span> &lt;action&gt;
+<span class="hljs-number">20</span>   IF there is something we are supposed <span class="hljs-built_in">to</span> <span class="hljs-built_in">do</span> <span class="hljs-keyword">as</span> <span class="hljs-operator">a</span> <span class="hljs-built_in">result</span> <span class="hljs-operator">of</span> &lt;action&gt;:
+<span class="hljs-number">30</span>     DO that thing
+<span class="hljs-number">40</span>   GOTO <span class="hljs-number">10</span>
+</code></pre>
+<p>However the DOM doesn&#39;t just deal with user interactions, it does network interactions too. For example, an AJAX (or XHR) request. When we make an AJAX request to a server, that request will take some time (network latency, processing by the server) JavaScript doesn&#39;t just sit and wait, doing nothing until it gets data back from the server. Instead, when the network request completes, the DOM will notify the event loop, and the event loop can deal with it then. In the meantime, the event loop can handle any user interactions that might happen before the request completes.</p>
+<p>[FIXME: is XHR actually part of the <em>DOM</em>?]</p>
+<p>With this new knowledge, we could expand our pseudo code to be something like:</p>
+<pre><code class="lang-basic"><span class="hljs-number">10</span> WAIT <span class="hljs-keyword">UNTIL</span> some kind <span class="hljs-keyword">of</span> dom &lt;<span class="hljs-keyword">event</span>&gt; happens
+<span class="hljs-number">20</span>   <span class="hljs-keyword">IF</span> there <span class="hljs-keyword">is</span> something we are supposed <span class="hljs-keyword">to</span> <span class="hljs-keyword">do</span> <span class="hljs-keyword">as</span> a result <span class="hljs-keyword">of</span> &lt;<span class="hljs-keyword">event</span>&gt;:
+<span class="hljs-number">30</span>     <span class="hljs-keyword">DO</span> that thing
+<span class="hljs-number">40</span>   <span class="hljs-keyword">GOTO</span> <span class="hljs-number">10</span>
+</code></pre>
+
+                
+                </section>
+            
+            </div>
+
+            <div class="page-footer">
+    
+        
+            
+            <a href="../intro/single-threaded.html" class="navigation-link next">Next</a>
+            
+        
+    
+</div>
+        </div>
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>

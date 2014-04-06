@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Asynchronous | EL</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="latentflip">
+        <meta name="description" content="">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../intro/the-stack.html" />
+        
+        
+        <link rel="prev" href="../intro/callback-queue.html" />
+        
+
+        <meta property="og:title" content="Asynchronous | EL">
+        <meta property="og:site_name" content="EL">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/latentflip">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="latentflip/el" data-level="1.4">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/latentflip/el" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/latentflip/el/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/latentflip/el/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >EL</a></h1>
+</div>
+
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/latentflip" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/edit/master/intro/asynchronous.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Intro
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1">
+                            
+                            <a href="../intro/wtf.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> WTF is the event loop?
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2">
+                            
+                            <a href="../intro/single-threaded.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Single Threaded
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3">
+                            
+                            <a href="../intro/callback-queue.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> The callback queue
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4">
+                            
+                            <a href="../intro/asynchronous.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> Asynchronous
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.5">
+                            
+                            <a href="../intro/the-stack.html">
+                                <i class="fa fa-check"></i> <b>1.5)</b> What&#39;s the stack
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.6">
+                            
+                            <a href="../intro/event-loop-browser.html">
+                                <i class="fa fa-check"></i> <b>1.6)</b> Event loop in the browser context
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.7">
+                            
+                            <a href="../intro/timers.html">
+                                <i class="fa fa-check"></i> <b>1.7)</b> Timers
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.8">
+                            
+                            <a href="../intro/now-or-later.html">
+                                <i class="fa fa-check"></i> <b>1.8)</b> Now or later: sync or async callbacks
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="page-wrapper">
+            <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 55.55555555555556%;min-width: 44.44444444444444%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../README.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Intro" class="chapter done new-chapter" data-progress="1" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../intro/wtf.html" title="WTF is the event loop?" class="chapter done " data-progress="1.1" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../intro/single-threaded.html" title="Single Threaded" class="chapter done " data-progress="1.2" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../intro/callback-queue.html" title="The callback queue" class="chapter done " data-progress="1.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../intro/asynchronous.html" title="Asynchronous" class="chapter done " data-progress="1.4" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../intro/the-stack.html" title="What&#39;s the stack" class="chapter  " data-progress="1.5" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../intro/event-loop-browser.html" title="Event loop in the browser context" class="chapter  " data-progress="1.6" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../intro/timers.html" title="Timers" class="chapter  " data-progress="1.7" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../intro/now-or-later.html" title="Now or later: sync or async callbacks" class="chapter  " data-progress="1.8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+            <div class="page-inner">
+            
+            </div>
+
+            <div class="page-footer">
+    
+        
+            
+            <a href="../intro/the-stack.html" class="navigation-link next">Next</a>
+            
+        
+    
+</div>
+        </div>
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>

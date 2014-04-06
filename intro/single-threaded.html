@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Single Threaded | EL</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="latentflip">
+        <meta name="description" content="">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../intro/callback-queue.html" />
+        
+        
+        <link rel="prev" href="../intro/wtf.html" />
+        
+
+        <meta property="og:title" content="Single Threaded | EL">
+        <meta property="og:site_name" content="EL">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/latentflip">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+        
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+        
+    </head>
+    <body>
+        
+<div class="book" data-github="latentflip/el" data-level="1.2">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="https://github.com/latentflip/el" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://github.com/latentflip/el/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/latentflip/el/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+
+
+    <!-- Title -->
+    <h1><a href="../README.html" >EL</a></h1>
+</div>
+
+    <div class="book-summary">
+    <ul class="summary">
+        <li>
+            <a href="https://github.com/latentflip" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/latentflip/el/edit/master/intro/single-threaded.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        <li data-level="0">
+            <a href="../README.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1">
+                
+                <a href="../intro/README.html">
+                    <i class="fa fa-check"></i> <b>1)</b> Intro
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1">
+                            
+                            <a href="../intro/wtf.html">
+                                <i class="fa fa-check"></i> <b>1.1)</b> WTF is the event loop?
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2">
+                            
+                            <a href="../intro/single-threaded.html">
+                                <i class="fa fa-check"></i> <b>1.2)</b> Single Threaded
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3">
+                            
+                            <a href="../intro/callback-queue.html">
+                                <i class="fa fa-check"></i> <b>1.3)</b> The callback queue
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4">
+                            
+                            <a href="../intro/asynchronous.html">
+                                <i class="fa fa-check"></i> <b>1.4)</b> Asynchronous
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.5">
+                            
+                            <a href="../intro/the-stack.html">
+                                <i class="fa fa-check"></i> <b>1.5)</b> What&#39;s the stack
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.6">
+                            
+                            <a href="../intro/event-loop-browser.html">
+                                <i class="fa fa-check"></i> <b>1.6)</b> Event loop in the browser context
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.7">
+                            
+                            <a href="../intro/timers.html">
+                                <i class="fa fa-check"></i> <b>1.7)</b> Timers
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.8">
+                            
+                            <a href="../intro/now-or-later.html">
+                                <i class="fa fa-check"></i> <b>1.8)</b> Now or later: sync or async callbacks
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body" tabindex="-1">
+        <div class="page-wrapper">
+            <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 33.333333333333336%;min-width: 22.22222222222222%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../README.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../intro/README.html" title="Intro" class="chapter done new-chapter" data-progress="1" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../intro/wtf.html" title="WTF is the event loop?" class="chapter done " data-progress="1.1" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../intro/single-threaded.html" title="Single Threaded" class="chapter done " data-progress="1.2" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../intro/callback-queue.html" title="The callback queue" class="chapter  " data-progress="1.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../intro/asynchronous.html" title="Asynchronous" class="chapter  " data-progress="1.4" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../intro/the-stack.html" title="What&#39;s the stack" class="chapter  " data-progress="1.5" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../intro/event-loop-browser.html" title="Event loop in the browser context" class="chapter  " data-progress="1.6" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../intro/timers.html" title="Timers" class="chapter  " data-progress="1.7" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../intro/now-or-later.html" title="Now or later: sync or async callbacks" class="chapter  " data-progress="1.8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+            <div class="page-inner">
+            
+                <section class="normal" id="section-gitbook_4">
+                
+                    <h1 id="single-threaded">Single Threaded</h1>
+<p>People frequently talk about JavaScript as being &quot;single-threaded&quot;, but what does that actually mean?</p>
+<p>First off, what is a thread? A thread is a flow of execution within a shared memory space [FIXME: ???]. In a single threaded programming language, there is only one flow of execution. This means that it is <em>guaranteed</em> that:</p>
+<pre><code><span class="hljs-reserved">var</span> x = <span class="hljs-string">"hello"</span>;
+<span class="hljs-built_in">console</span>.log(x);
+<span class="hljs-built_in">console</span>.log(x);
+</code></pre><p>will always print:</p>
+<pre><code>hello
+hello
+</code></pre><p>i.e. the computer program can <em>only do one thing at a time</em>.</p>
+<p>In a language that supports multiple threads, the programming language can do more than one thing at once, but often with access to the same variables etc. Multithreading is often a way to get around the fact that some operations take time, for example I/O, like reading and writing to files is <em>relatively</em> slow, and most programming languages <em>block</em> when they write to files, i.e. when a thread is writing to a file, it has to wait till the file is written before it can do anything else.</p>
+<p>The trouble with multi-threaded programming is that it&#39;s difficult to reason about, and introductes a whole host of potential bugs. For example, here&#39;s a little ruby:</p>
+<pre><code class="lang-ruby">x = <span class="hljs-string">"hello"</span>
+
+<span class="hljs-constant">Thread</span>.new {
+  <span class="hljs-constant">File</span>.write(<span class="hljs-string">'./foo.tmp'</span>, <span class="hljs-string">'a long string of characters to write to the file'</span>)
+  x = <span class="hljs-string">"HAHA"</span>
+}
+
+print x + <span class="hljs-string">', '</span>
+print x + <span class="hljs-string">', '</span>
+</code></pre>
+<p>Here we write to a file in a separate thread. This means that the main thread doesn&#39;t have to wait for the file to be written, and can just start doing <code>puts x</code>. But the trouble is, that we now can&#39;t guarantee in exactly what order the code will be run in. The line <code>x = &quot;HAHA&quot;</code> will run as soon as the other thread has finished writing the file, which could be <em>at any time</em>.</p>
+<p>Running this example on my machine always prints: <code>&quot;hello, hello, &quot;</code>, which doesn&#39;t illuminate the bug.</p>
+<p>If we extend the example to look like this, it exposes the problem:</p>
+<pre><code>x = <span class="hljs-string">"hello"</span>
+
+Thread.new {
+  File.<span class="hljs-command">write</span>('./foo.tmp', 'a long <span class="hljs-type">string</span> <span class="hljs-keyword">of</span> <span class="hljs-property">characters</span> <span class="hljs-keyword">to</span> <span class="hljs-command">write</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-type">file</span>')
+  x = <span class="hljs-string">"HAHA"</span>
+}
+
+
+<span class="hljs-number">100.</span><span class="hljs-keyword">times</span> do
+  print x + ', '
+<span class="hljs-keyword">end</span>
+</code></pre><p>It changes from run to run, but on my machine, the output is something like:</p>
+<pre><code>hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA,
+</code></pre><pre><code>hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA, HAHA,
+</code></pre><p>and sometimes even: </p>
+<pre><code>hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello, hello,
+</code></pre><h3 id="single-threaded-concurrency-an-oxymoron-">Single-Threaded Concurrency: an oxymoron?</h3>
+<p>So multi-threading provides us with concurrency, by allowing multiple pieces of code to run at effectively the same time, but the result is that we can introduce race conditions between different bits of code, which can be hard to reason about.</p>
+<p>But JavaScript is single-threaded, i.e. only one statement is ever executing at once, so how do we get &quot;concurrency&quot; with JavaScript? In node we can write to a file, and carry on with life without having to wait for the file to be written. </p>
+<p>The answer is non-blocking I/O. As discussed in the event-loop section: in the browser when we make a network request JavaScript doesn&#39;t sit and wait for it to complete, instead it carries on, and waits for the DOM [FIXME: ???] to tell us that the request is complete and we handle the result then. Equally in node, when we write/read a file, we don&#39;t sit and wait for the action to complete, we carry on executing, and wait till it&#39;s done.</p>
+<pre><code><span class="hljs-reserved">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+
+fs.writeFile(<span class="hljs-string">'./foo.tmp'</span>, <span class="hljs-reserved">function</span> (err) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Done writing'</span>);
+});
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello'</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello'</span>);
+</code></pre><p>executes:</p>
+<pre><code>hello
+hello
+Done writing
+</code></pre><p>don&#39;t worry, we&#39;ll come back to an equivalent example of what happens if the write to a file finishes between our two <code>console.log</code> statements later.</p>
+<h3 id="so-what-actually-does-the-i-o-">So what actually does the I/O?</h3>
+<p>This might leave you wondering? Who is actually managing the I/O? This is all handled outside of JavaScript land. In node, it&#39;s libuv, in the browser it&#39;s the DOM [FIXME: ???] APIs which handle network requests. Essentially instead of spinning up a process in javascript land, we hand off the work to something else, and carry on, which enables us to emulate concurrency: &quot;something else is working while we are still working&quot;, without thread safety issues: that otherthing exists in a separate land to JS, and so can&#39;t affect our code space.</p>
+<p>But this still raises the question: when are the &quot;I&#39;ve finished writing to a file events&quot; run. Those callbacks exist in JS land, can&#39;t they mess everything up just like in the MT case?</p>
+
+                
+                </section>
+            
+            </div>
+
+            <div class="page-footer">
+    
+        
+            
+            <a href="../intro/callback-queue.html" class="navigation-link next">Next</a>
+            
+        
+    
+</div>
+        </div>
+    </div>
+</div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+    </body>
+</html>
